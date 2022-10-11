@@ -12,7 +12,18 @@ namespace PicoBoard
         static void Main(string[] args)
         {
             PicoBoard pb = new PicoBoard();
-            pb.Test();
+            pb.Connect();
+            while(true)
+            {
+                try
+                {
+                    pb.Update();
+                } catch(Exception e)
+                {
+                    Console.Error.WriteLine(e);
+                }
+                pb.ConsoleOutput();
+            }
         }
     }
 }
